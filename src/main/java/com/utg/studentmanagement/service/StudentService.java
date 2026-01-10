@@ -26,9 +26,6 @@ public class StudentService {
         }
 
         public Student saveStudent(Student student) {
-            System.out.println("SERVICE SAVE CALLED");
-            System.out.println(student.getName());
-            System.out.println(student.getEmail());
             return repository.save(student);
         }
 
