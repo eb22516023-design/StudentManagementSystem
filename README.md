@@ -161,10 +161,10 @@ GitHub version control
 
 👤 Author
 
-Ebrima Bah
-Modou Lamin Sama
-Mama Marong
-Bubacarr Demba
-Isatou A Jallow
-University of The Gambia (UTG)
+Ebrima Bah,
+Modou Lamin Sama,
+Mama Marong,
+Bubacarr Demba, and
+Isatou A Jallow.
+
 Course: Computer Programming II
