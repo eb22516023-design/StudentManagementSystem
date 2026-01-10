@@ -1,0 +1,11 @@
+POST http://localhost:8080/students
+Content-Type: application/json
+
+{
+  "name": "Ebrima Bah",
+  "email": "ebah267@gmail.com",
+  "course": "Information System"
+}
+
+###
+GET http://localhost:8080/students/999
