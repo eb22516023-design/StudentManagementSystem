@@ -3,6 +3,7 @@ package com.utg.studentmanagement.service;
 import com.utg.studentmanagement.entity.Student;
 import com.utg.studentmanagement.exception.StudentNotFoundException;
 import com.utg.studentmanagement.repository.StudentRepository;
+import jakarta.persistence.EntityExistsException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,6 +27,9 @@ public class StudentService {
         }
 
         public Student saveStudent(Student student) {
+            if(repository.existsByEmail(student.getEmail())){
+                throw new EntityExistsException("Email already exist ");
+            }
             return repository.save(student);
         }
 
@@ -35,4 +39,18 @@ public class StudentService {
             }
             repository.deleteById(id);
         }
+
+    public Student updateStudent(Student data, Long id) {
+            Student student = repository.findById(id).orElseThrow(() -> new StudentNotFoundException(id));
+            if(data.getName() != null){
+                student.setName(data.getName());
+            }
+            if(data.getEmail() != null){
+                student.setEmail(data.getEmail());
+            }
+            if(data.getCourse() != null){
+                student.setCourse(data.getCourse());
+            }
+            return repository.save(student);
     }
+}

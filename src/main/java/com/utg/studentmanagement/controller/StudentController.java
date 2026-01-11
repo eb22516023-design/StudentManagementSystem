@@ -38,6 +38,7 @@ package com.utg.studentmanagement.controller;
 
 import com.utg.studentmanagement.entity.Student;
 import com.utg.studentmanagement.service.StudentService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -70,6 +71,11 @@ public class StudentController {
     @DeleteMapping("/{id}")
     public void deleteStudent(@PathVariable Long id) {
         studentService.deleteStudent(id);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Student> updateStudent(@PathVariable Long id, @RequestBody Student data) {
+        return ResponseEntity.ok((studentService.updateStudent(data, id)));
     }
 }
 
